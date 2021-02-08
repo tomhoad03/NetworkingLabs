@@ -13,6 +13,7 @@ class UDPReceiver {
                         + (new String(packet.getData())).trim() + " "
                         + packet.getAddress() + ":"
                         + packet.getPort());
+                Thread.sleep(2000);
             }
         } catch (Exception e) {
             System.out.println("error "+e);

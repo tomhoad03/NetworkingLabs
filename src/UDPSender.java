@@ -16,7 +16,7 @@ class UDPSender{
                         + new String(packet.getData()) + " "
                         + packet.getAddress() + ":"
                         + packet.getPort());
-                Thread.sleep(2000);
+                // Thread.sleep(2000);
             }
         } catch (Exception e) {
             System.out.println("error");
