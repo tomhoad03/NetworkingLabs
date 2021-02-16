@@ -1,3 +1,5 @@
+package SocketsLab;
+
 import java.io.*;
 import java.net.*;
 
@@ -7,7 +9,8 @@ class UDPSender{
             InetAddress address =
                     InetAddress.getByName("Tom-Desktop");
             DatagramSocket socket = new DatagramSocket();
-            for(int i=0;i<10;i++){
+
+            for(int i=0;i<100;i++){
                 byte[] buf = String.valueOf(i).getBytes();
                 DatagramPacket packet =
                         new DatagramPacket(buf, buf.length, address, 4321);
@@ -16,7 +19,7 @@ class UDPSender{
                         + new String(packet.getData()) + " "
                         + packet.getAddress() + ":"
                         + packet.getPort());
-                // Thread.sleep(2000);
+                Thread.sleep(2000);
             }
         } catch (Exception e) {
             System.out.println("error");
