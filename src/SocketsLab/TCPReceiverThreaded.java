@@ -22,9 +22,10 @@ class TCPReceiverThreaded {
                                 while ((line = in.readLine()) != null) {
                                     System.out.println(line + " received from " + client.getInetAddress());
                                     Thread.sleep(2000);
+
                                     out.println("ACK");
                                     out.flush();
-                                    System.out.println("Sent acknowledgement");
+                                    System.out.println("ACK");
                                 }
 
                                 client.close();

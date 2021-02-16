@@ -10,13 +10,14 @@ class TCPSender {
             PrintWriter out = new PrintWriter(socket.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            for(int i=0;i<25;i++) {
+            for(int i=0;i<10;i++) {
                 if (in.readLine().equals("ACK")) {
-                    System.out.println("Acknowledged");
+                    System.out.println("ACK");
+                    Thread.sleep(2000);
+
                     out.println("TCP message " + i);
                     out.flush();
                     System.out.println("TCP message "+ i +" sent");
-                    Thread.sleep(1000);
                 }
             }
         }
