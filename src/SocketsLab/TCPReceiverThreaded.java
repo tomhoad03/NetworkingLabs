@@ -14,14 +14,19 @@ class TCPReceiverThreaded {
                             try {
                                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                                 PrintWriter out = new PrintWriter(client.getOutputStream());
-                                out.println("Acknowledged"); out.flush();
-
                                 String line;
-                                while ((line = in.readLine()) != null)
+
+                                out.println("ACK");
+                                out.flush();
+
+                                while ((line = in.readLine()) != null) {
                                     System.out.println(line + " received from " + client.getInetAddress());
-                                    Thread.sleep(1000);
-                                    out.println("Acknowledged"); out.flush();
-                                    System.out.println("Acknowledged from " + client.getInetAddress());
+                                    Thread.sleep(2000);
+                                    out.println("ACK");
+                                    out.flush();
+                                    System.out.println("Sent acknowledgement");
+                                }
+
                                 client.close();
                             } catch (Exception e) {
                             }
